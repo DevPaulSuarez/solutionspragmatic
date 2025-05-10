@@ -1,0 +1,19 @@
+{
+  "name": "webodoo",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@sanity/client": "^7.2.1",
+    "@tailwindcss/vite": "^4.1.4",
+    "astro": "^5.7.5",
+    "groq": "^3.88.2",
+    "tailwindcss": "^4.1.4",
+    "tailwindcss-animated": "^2.0.0"
+  }
+}
