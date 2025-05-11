@@ -1,10 +1,22 @@
 ---
 import { supportedLangs, defaultLang } from '../i18n/translations';
 
-export const prerender = false; // Necesario para acceder a Astro.request
+export const prerender = false;
 
 const acceptLanguage = Astro.request.headers.get('accept-language') ?? '';
-const preferredLang = supportedLangs.find((lang) => acceptLanguage.includes(lang)) ?? defaultLang;
 
-Astro.redirect(`/${preferredLang}/`);
+// Detecta el idioma preferido del navegador
+const preferredLang =
+  supportedLangs.find((lang) => acceptLanguage.toLowerCase().includes(lang)) ?? defaultLang;
+
+console.log(`Redirigiendo al idioma preferido: ${preferredLang}`);
+
+// Redirección automática utilizando Response con la cabecera Location
+return new Response(null, {
+  status: 302,
+  headers: {
+    Location: `/${preferredLang}/`, // Redirige a la ruta con el idioma detectado
+  },
+});
+
 ---

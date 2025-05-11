@@ -19,18 +19,19 @@ export function getStaticPaths() {
 }
 
 // Obtiene el idioma de la URL o usa el idioma preferido del navegador
-const { lang } = Astro.params; // Recibe el idioma de la ruta
-const t = translations[lang] || translations[defaultLang]; // Usa el idioma de la ruta o el idioma por defecto
+const { lang } = Astro.params; // `lang` es de tipo `string`
+const validLang = supportedLangs.includes(lang as 'es' | 'en') ? (lang as 'es' | 'en') : defaultLang; // Validamos el idioma y lo restringimos a 'es' | 'en'
+
+const t = translations[validLang] || translations[defaultLang]; // Accedemos a las traducciones
 
 ---
 
 <Layout
-title ="Odoo Service"
-description="Sistemas para tiendas , restaurantes"
+  title="Odoo Service"
+  description="Sistemas para tiendas , restaurantes"
 >
     <Video />
-	<Intro />
+    <Intro />
     <Bento />
-    <Proyecto lang={lang} />
+    <Proyecto lang={validLang} />
 </Layout>
-
