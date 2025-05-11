@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Bento from '../../components/Bento.astro';
+import Footer from '../../components/Footer.astro';
+import Video from '../../components/Video.astro';
+import Intro from '../../components/Intro.astro';
+import PreFooter from '../../components/PreFooter.astro';
+import Proyecto from '../[lang]/proyectos.astro';
+import { supportedLangs, defaultLang, translations } from '../../i18n/translations'; // Importando las traducciones
+
+// Definir prerender como true para prerenderizar las rutas dinámicas
+export const prerender = true; 
+
+// Función para obtener las rutas dinámicas
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+// Obtiene el idioma de la URL o usa el idioma preferido del navegador
+const { lang } = Astro.params; // Recibe el idioma de la ruta
+const t = translations[lang] || translations[defaultLang]; // Usa el idioma de la ruta o el idioma por defecto
+
+---
+
+<Layout
+title ="Odoo Service"
+description="Sistemas para tiendas , restaurantes"
+>
+    <Video />
+	<Intro />
+    <Bento />
+    <Proyecto lang={lang} />
+</Layout>
+

@@ -1,17 +1,13 @@
-// src/i18n/translations.ts
+export const supportedLangs = ['es', 'en'];
+export const defaultLang = 'es';
+
 export const translations = {
   es: {
-    title: 'Bienvenido a mi portafolio',
-    description: 'Este es el lugar donde puedes ver mis proyectos.',
+    projectsTitle: 'Proyectos',
+    // otras traducciones
   },
   en: {
-    title: 'Welcome to my portfolio',
-    description: 'This is the place where you can see my projects.',
-  },
+    projectsTitle: 'Projects',
+    // otras traducciones
+  }
 };
-
-// Idioma por defecto
-export const defaultLang = 'es';  
-
-// Idiomas soportados
-export const supportedLangs = ['es', 'en'];  

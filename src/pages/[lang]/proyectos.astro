@@ -1,0 +1,18 @@
+---
+import { sanity } from '../../lib/sanity'; // asegúrate de tener este archivo correctamente configurado
+
+const { lang } = Astro.props;
+
+// Consulta a Sanity para obtener las traducciones según el idioma
+const data = await sanity.fetch(
+  `*[_type == "translations" && lang == $lang][0] {
+    projectsTitle
+  }`,
+  { lang }
+);
+
+// Si no encuentra datos, usa un valor por defecto
+const title = data?.projectsTitle ?? 'Proyectos';
+---
+
+<h1>{title}</h1>
