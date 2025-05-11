@@ -1,18 +1,61 @@
 ---
-import { sanity } from '../../lib/sanity'; // asegúrate de tener este archivo correctamente configurado
+import { sanity } from '../../lib/sanity'; // Asegúrate de que este archivo esté correctamente configurado
 
-const { lang } = Astro.props;
+const { lang } = Astro.props; // Obtén el idioma desde las propiedades de Astro
 
-// Consulta a Sanity para obtener las traducciones según el idioma
+// Consulta a Sanity para obtener el título, la descripción, la imagen y las tecnologías
 const data = await sanity.fetch(
-  `*[_type == "translations" && lang == $lang][0] {
-    projectsTitle
-  }`,
-  { lang }
+  `*[_type == "project"] {
+    title {
+      es,
+      en
+    },
+    description {
+      es,
+      en
+    },
+    image {
+      asset->{
+        url
+      }
+    },
+    technologies[] 
+  }`
 );
 
-// Si no encuentra datos, usa un valor por defecto
-const title = data?.projectsTitle ?? 'Proyectos';
+// Si no encuentra datos, usa valores por defecto
+const projects = data ?? []; // Si no hay proyectos, usamos un array vacío
 ---
 
-<h1>{title}</h1>
+<div class="projects">
+  {projects.map((project: { 
+    title: { es: string; en: string }; 
+    description: { es: string; en: string }; 
+    image: { asset: { url: string } }; 
+    technologies: string[]; 
+  }) => (
+    <div class="project-card">
+      <!-- Título del Proyecto -->
+      <h2>{project.title[lang as 'es' | 'en'] ?? 'Título no disponible'}</h2>
+      
+      <!-- Descripción del Proyecto -->
+      <p>{project.description[lang as 'es' | 'en'] ?? 'Descripción no disponible'}</p>
+      
+      <!-- Imagen del Proyecto -->
+      <img 
+        src={project.image?.asset?.url ?? 'default-image.jpg'} 
+        alt={project.title[lang as 'es' | 'en']} 
+        class="project-image"
+      />
+      
+      <!-- Tecnologías del Proyecto -->
+      <ul class="technologies">
+        {project.technologies?.map((tech: string) => (
+          <Fragment>
+            <li>{tech}</li>  <!-- 'key' no se necesita aquí, ya que no hay una iteración a nivel de 'li' -->
+          </Fragment>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
