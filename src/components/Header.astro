@@ -1,27 +1,246 @@
 ---
-import Logo from "../components/Logo.astro"
+import Logo from "../components/Logo.astro";
+import en from "../locales/en.json";
+import es from "../locales/es.json";
+
+const { lang } = Astro.params;
+
+type Lang = "en" | "es";
+
+const locales: Record<Lang, typeof en> = { en, es };
+
+const currentLang: Lang = lang === "es" || lang === "en" ? lang : "en";
+const t = locales[currentLang];
 ---
-<header id="header-nav" class="fixed w-screen py-4 z-50 top-0 px-8 lg:px-0">
-    <div class="grid grid-cols-3 max-w-7xl mx-auto items-center justify-between">
-        <a href="/" class="col-span-1">
-            <Logo class="w-9 h-auto" />
-        </a>
-        <nav class="col-span-1 justify-self-center">
-            <ul class="flex gap-4">
-                <li>
-                   <a class="hover:underline" href="#">INFO</a> 
-                </li>
-                <li>
-                    <a class="hover:underline" href="#">ARCHIVO</a> 
-                </li>
-            </ul>
 
-        </nav>
-        <a
-            href="#"
-            class="border rounded-full inline-block border-white px-8 py-2 justify-self-end hover:bg-white hover:text-black duration-300">
-             EL DOCUMENTAL
-        </a>
+<header id="header-nav" class="fixed w-screen py-4 z-50 top-0 px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href={`/${currentLang}`} class="col-span-1" aria-label="Inicio">
+      <Logo class="w-9 h-auto" />
+    </a>
+    <nav class="hidden lg:block relative" id="main-nav">
+      <ul class="flex gap-4">
+        <li class="group relative">
+          <a class="hover:underline cursor-pointer" href="#Services" aria-label="Servicios">
+            {t.navService}
+          </a>
+          <ul class="absolute left-0 top-full mt-2 w-[500px] bg-white dark:bg-gray-800 shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 grid grid-cols-3 gap-4 p-4">
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#custom-dev" aria-label="Desarrollo personalizado">
+                {t.subNavServiceitem1}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  soluciones únicas para tu negocio.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#corporate-web" aria-label="Web corporativa">
+                {t.subNavServiceitem2}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  presencia sólida y profesional.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#seo-sem" aria-label="SEO y Publicidad">
+                {t.subNavServiceitem3}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  atrae más clientes potenciales.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#ecommerce" aria-label="Tiendas online">
+                {t.subNavServiceitem4}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  vende fácil y con seguridad.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#chatbots" aria-label="Automatización">
+                {t.subNavServiceitem5}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  chatbots y correos para respuestas inmediatas 24/7.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a class="text-xs font-semibold uppercase block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#maintenance" aria-label="Mantenimiento">
+                {t.subNavServiceitem6}
+                <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                  soporte continuo y confiable.
+                </p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="hover:underline" href="#Portafolio" aria-label="Portafolio">{t.navPortafolio}</a>
+        </li>
+        <li>
+          <a class="hover:underline" href={`/${currentLang}/Info`} aria-label="Información">{t.navInfo}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href={`/${currentLang}/documental`} class="hidden lg:inline-block border rounded-full border-white px-8 py-2 hover:bg-white hover:text-black duration-300 mr-0 lg:mr-10" aria-label="Consulta">
+      {t.btnConsulta}
+    </a>
+
+    {/* Menú hamburguesa para dispositivos móviles */}
+    <div class="lg:hidden">
+      <button id="menu-toggle" aria-label="Menú">
+        <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+        </svg>
+      </button>
     </div>
+  </div>
 
+  {/* Menú móvil (inicialmente oculto) */}
+  <div class="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-md z-40 hidden" id="mobile-menu">
+    <ul class="py-4 px-6">
+      <li id="services-mobile-item">
+        <button id="toggle-services-mobile" class="w-full text-left py-2 hover:bg-gray-100 dark:hover:bg-gray-700" aria-expanded="false" aria-controls="sub-services-mobile">
+          {t.navService}
+          <svg class="w-4 h-4 inline-block ml-2 transform transition-transform" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <ul id="sub-services-mobile" class="mt-2 pl-4 hidden">
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#custom-dev" aria-label="Desarrollo personalizado">
+              {t.subNavServiceitem1}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                soluciones únicas para tu negocio.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#corporate-web" aria-label="Web corporativa">
+              {t.subNavServiceitem2}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                presencia sólida y profesional.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#seo-sem" aria-label="SEO y Publicidad">
+              {t.subNavServiceitem3}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                atrae más clientes potenciales.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#ecommerce" aria-label="Tiendas online">
+              {t.subNavServiceitem4}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                vende fácil y con seguridad.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#chatbots" aria-label="Automatización">
+              {t.subNavServiceitem5}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                chatbots y correos para respuestas inmediatas 24/7.
+              </p>
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm" href="#maintenance" aria-label="Mantenimiento">
+              {t.subNavServiceitem6}
+              <p class="text-[10px] lowercase text-gray-500 dark:text-gray-300 mt-1">
+                soporte continuo y confiable.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href="#Portafolio" aria-label="Portafolio">{t.navPortafolio}</a>
+      </li>
+      <li>
+        <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href={`/${currentLang}/Info`} aria-label="Información">{t.navInfo}</a>
+      </li>
+      <li>
+        <a class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-700" href={`/${currentLang}/documental`} aria-label="Consulta">
+          {t.btnConsulta}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const OFFSET = 80; // Ajusta este valor según la altura de tu header
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const toggleServicesMobile = document.getElementById("toggle-services-mobile");
+      const subServicesMobile = document.getElementById("sub-services-mobile");
+
+      // Función para alternar la visibilidad del menú móvil
+      const toggleMobileMenu = () => {
+        mobileMenu.classList.toggle("hidden");
+      };
+
+      // Evento de clic para el botón del menú hamburguesa
+      menuToggle?.addEventListener("click", toggleMobileMenu);
+
+      // Ocultar el menú móvil al redimensionar la ventana (para desktop)
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) { // lg breakpoint
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // Función para desplegar/ocultar el submenú de Servicios en móvil
+      const toggleMobileServices = () => {
+        subServicesMobile.classList.toggle("hidden");
+        toggleServicesMobile.setAttribute(
+          "aria-expanded",
+          !subServicesMobile.classList.contains("hidden")
+        );
+        // Rotar el icono de la flecha
+        toggleServicesMobile.querySelector("svg")?.classList.toggle("rotate-180");
+      };
+
+      // Evento de clic para el botón de "Servicios" en el menú móvil
+      toggleServicesMobile?.addEventListener("click", toggleMobileServices);
+
+      // Smooth scrolling para los enlaces
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const href = link.getAttribute("href");
+          const targetId = href?.substring(1);
+          const target = document.getElementById(targetId);
+
+          if (target) {
+            event.preventDefault();
+            const top =
+              target.getBoundingClientRect().top + window.scrollY - OFFSET;
+
+            window.scrollTo({
+              top,
+              behavior: "smooth",
+            });
+
+            // Cerrar el menú móvil después de hacer clic en un enlace (opcional)
+            if (window.innerWidth < 1024 && mobileMenu) {
+              mobileMenu.classList.add("hidden");
+            }
+            // Cerrar el submenú de servicios si está abierto al hacer clic en un enlace
+            if (window.innerWidth < 1024 && !subServicesMobile.classList.contains("hidden")) {
+              subServicesMobile.classList.add("hidden");
+              toggleServicesMobile.setAttribute("aria-expanded", false);
+              toggleServicesMobile.querySelector("svg")?.classList.remove("rotate-180");
+            }
+          }
+        });
+      });
+    });
+  </script>
+  
 </header>

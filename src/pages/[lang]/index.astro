@@ -1,15 +1,21 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Bento from '../../components/Bento.astro';
-import Footer from '../../components/Footer.astro';
-import Video from '../../components/Video.astro';
-import Intro from '../../components/Intro.astro';
-import PreFooter from '../../components/PreFooter.astro';
-import Proyecto from '../[lang]/proyectos.astro';
-import { supportedLangs, defaultLang, translations } from '../../i18n/translations'; // Importando las traducciones
+import Layout from "../../layouts/Layout.astro";
+import Bento from "../../components/Bento.astro";
+import Footer from "../../components/Footer.astro";
+import Video from "../../components/Video.astro";
+import PreFooter from "../../components/PreFooter.astro";
+import Proyecto from "./proyectos.astro";
+import Services from "./Services.astro";
+
+import {
+  supportedLangs,
+  defaultLang,
+  translations,
+} from "../../i18n/translations"; // Importando las traducciones
+
 
 // Definir prerender como true para prerenderizar las rutas dinámicas
-export const prerender = true; 
+export const prerender = true;
 
 // Función para obtener las rutas dinámicas
 export function getStaticPaths() {
@@ -20,18 +26,26 @@ export function getStaticPaths() {
 
 // Obtiene el idioma de la URL o usa el idioma preferido del navegador
 const { lang } = Astro.params; // `lang` es de tipo `string`
-const validLang = supportedLangs.includes(lang as 'es' | 'en') ? (lang as 'es' | 'en') : defaultLang; // Validamos el idioma y lo restringimos a 'es' | 'en'
+const validLang = supportedLangs.includes(lang as "es" | "en")
+  ? (lang as "es" | "en")
+  : defaultLang; // Validamos el idioma y lo restringimos a 'es' | 'en'
 
 const t = translations[validLang] || translations[defaultLang]; // Accedemos a las traducciones
-
 ---
 
-<Layout
-  title="Odoo Service"
-  description="Sistemas para tiendas , restaurantes"
->
-    <Video />
-    <Intro />
-    <Bento />
+<Layout title="Odoo Service" description="Sistemas para tiendas , restaurantes">
+  <Video />
+  <section id="Services">
+    <h2>Servicios</h2>
+    <!-- contenido -->
+    <Services lang={validLang} />
+  </section>
+  <Bento />
+
+
+  <section id="Portafolio">
+    <h2>Portafolio</h2>
+    <!-- contenido -->
     <Proyecto lang={validLang} />
+  </section>
 </Layout>
