@@ -9,5 +9,19 @@
     "subNavServiceitem4": "Tiendas Online",
     "subNavServiceitem5": "Automatización",
     "subNavServiceitem6": "Mantenimiento",
-    "navInfo": "INFO"
+    
+    "subNavParrafoServiceitem1": "Soluciones únicas para su negocio.",
+    "subNavParrafoServiceitem2": "presencia sólida y profesional.",
+    "subNavParrafoServiceitem3": "atrae más clientes potenciales.",
+    "subNavParrafoServiceitem4": "vende fácil y con seguridad.",
+    "subNavParrafoServiceitem5": "Autochatbots y correos para respuestas inmediatas 24/7.matización",
+    "subNavParrafoServiceitem6": "soporte continuo y confiable.",
+    "navInfo": "INFO",
+
+    "Servicios":"Comentarios contenido de servicios",
+    "tituloServicio":"🚀 Nuestros Servicios",
+    "servicioParrafo1":"Nos especializamos en el desarrollo personalizado en WordPress y en estrategias de marketing para e-commerce, diseñadas para impulsar el crecimiento de tu negocio. Con base en Salt Lake City y atención en todo Utah, ayudamos a pequeñas y medianas empresas a destacarse en el entorno digital.",
+    "servicioParrafo2":"Desde sitios web WordPress modernos y responsivos hasta campañas de marketing enfocadas en resultados, trabajamos contigo de manera cercana para crear experiencias online efectivas que atraigan, conviertan y fidelicen a tus clientes.",
+    "servicioParrafo3":"No solo te ayudamos a adquirir nuevos clientes a un menor costo, sino también a aumentar el valor de tus clientes actuales mediante estrategias de marketing inteligentes y personalizadas. 📅 Agenda una consulta gratuita con nuestro equipo de expertos y construyamos juntos la historia de éxito digital de tu marca."
+
 }
