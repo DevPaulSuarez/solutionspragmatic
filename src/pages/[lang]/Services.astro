@@ -13,82 +13,149 @@ const currentLang: Lang = lang === "es" || lang === "en" ? lang : "en";
 const t = locales[currentLang];
 ---
 
-<section class="text-xl text-left px-20 max-w-[110ch] text-pretty mx-auto my-24">
-    <h1
-        class="text-5xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide"
-    >
-        {t.tituloServicio}
-    </h1>
-    <p class="text-center" >
-        {t.servicioParrafo1}
-    </p>
-    <br>
-    <p class="text-center" >
-        {t.servicioParrafo2}
-    </p>
-    <br>
-    <p class="text-center" >
-        {t.servicioParrafo3}
-    </p>
-    
+<section
+  class="text-xl text-left px-20 max-w-[110ch] text-pretty mx-auto my-24"
+>
+  <h1
+    class="text-5xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide"
+  >
+    {t.tituloServicio}
+  </h1>
+  <p class="text-center">
+    {t.servicioParrafo1}
+  </p>
+  <br />
+  <p class="text-center">
+    {t.servicioParrafo2}
+  </p>
+  <br />
+  <p class="text-center">
+    {t.servicioParrafo3}
+  </p>
+
   <div class="max-w-7xl mx-auto px-4 m-8">
-    
     <!-- Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Card 1 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
           <!-- Icono SVG de ejemplo -->
-           <img  class="h-30 w-30" src="https://www.svgrepo.com/show/343851/custom-coding-programming-development.svg" alt="imgCustomer">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/343851/custom-coding-programming-development.svg"
+            alt="imgCustomer"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem1}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem1}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem1}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem1}</p> <br />
+        <a href={`/${currentLang}/Services/web-development/`}>
+  <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
+        </a>
+      
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
-            <img class="h-30 w-30" src="https://www.svgrepo.com/show/261920/monitor-tv.svg" alt="imgWebCoporativo">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/261920/monitor-tv.svg"
+            alt="imgWebCoporativo"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem2}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem2}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem2}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem2}</p> <br />
+        <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
       </div>
 
       <!-- Card 3 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
-            <img  class="h-30 w-30" src="https://www.svgrepo.com/show/233879/database-add-user.svg" alt="imgSEM">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/233879/database-add-user.svg"
+            alt="imgSEM"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem3}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem3}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem3}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem3}</p> <br />
+        <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
       </div>
-            <!-- Card 4 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <!-- Card 4 -->
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
-            <img class="h-30 w-30" src="https://www.svgrepo.com/show/298775/store-shopper.svg" alt="imgStore">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/298775/store-shopper.svg"
+            alt="imgStore"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem4}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem4}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem4}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem4}</p> <br />
+        <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
       </div>
-            <!-- Card 5 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <!-- Card 5 -->
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
-            <img  class="h-30 w-30" src="https://www.svgrepo.com/show/192623/industrial-robot-factory.svg" alt="imgBot">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/192623/industrial-robot-factory.svg"
+            alt="imgBot"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem5}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem5}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem5}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem5}</p> <br />
+        <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
       </div>
-            <!-- Card 6 -->
-      <div class="bg-gray-200 rounded-2xl shadow-md p-6 text-center">
+      <!-- Card 6 -->
+      <div
+        class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+      >
         <div class="mb-4 flex justify-center">
-            <img class="h-30 w-30" src="https://www.svgrepo.com/show/343842/seo-maintenance.svg" alt="imgMantenimiento">
+          <img
+            class="h-20 w-20"
+            src="https://www.svgrepo.com/show/343842/seo-maintenance.svg"
+            alt="imgMantenimiento"
+          />
         </div>
-        <h4 class="text-xl font-semibold text-gray-900 mb-2">{t.subNavServiceitem6}</h4>
-        <p class="text-gray-600">{t.subNavParrafoServiceitem6}</p>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">
+          {t.subNavServiceitem6}
+        </h4>
+        <p class="text-gray-600">{t.subNavParrafoServiceitem6}</p> <br />
+        <button class="cursor-pointer bg-gray-100 hover:bg-white text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">
+          {t.saberMas}
+        </button>
       </div>
     </div>
   </div>
-
 </section>
-
-

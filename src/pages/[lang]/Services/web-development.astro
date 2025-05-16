@@ -1,0 +1,454 @@
+---
+import "../../../styles/global.css";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Servicios Web Personalizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="relative font-sans bg-gray-900 text-white">
+    <Header />
+
+    <!-- Fondo imagen -->
+    <div
+      class="fixed inset-0 bg-cover bg-center opacity-30 z-0"
+      style="background-image: url('https://mainleaf.com/wp-content/uploads/2025/02/Pessoas-programando-2-1536x861.jpg');"
+    >
+    </div>
+
+    <section class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10 px-4 md:px-0 py-10"
+      >
+        <!-- Columna izquierda: Título + Descripción (35%) -->
+        <div class="md:w-[50%]">
+          <h2 class="text-2xl md:text-2xl text-white mb-2 uppercase">
+            Diseño Web Persoanlizado
+          </h2>
+          <p
+            class="text-gray-200 text-base sm:text-lg text-center leading-relaxed"
+          >
+            Diseñamos pensando en tus clientes, no en nosotros. Combinamos
+            creatividad, rendimiento y estrategia para desarrollar sitios web
+            que conectan con tu audiencia, fortalecen tu imagen de marca y
+            generan resultados reales. Desde el diseño visual hasta la
+            experiencia de usuario, cada línea de código está orientada a
+            impulsar tu éxito comercial.
+          </p>
+          <div class="mt-5">
+            <a
+              href="#budget"
+              class="px-6 py-3 border border-white text-white rounded-full font-medium hover:bg-gray-100 hover:text-black transition"
+            >
+              Solicitar presupuesto
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Texto animado + Imagen (65%) -->
+        <div class="md:w-[50%] flex flex-col items-center md:items-start">
+          <!-- Texto animado -->
+          <p
+            class="text-lg md:text-xl font-semibold text-cyan-500 h-10 mb-2 text-center"
+          >
+            <span id="typewriter"></span>
+          </p>
+          <!-- Imagen más grande -->
+          <div
+            class="group overflow-hidden rounded-xl shadow-lg w-full max-w-3xl"
+          >
+            <img
+              src="https://res.cloudinary.com/dtscjqe7r/image/upload/f_auto,q_auto/v1/pess/qdvfk5v5eozrm6esat87"
+              alt="Diseño web"
+              class="w-full rounded-xl opacity-90 transition-transform duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
+        Nuestros diseños de sitios web incluyen
+      </h2>
+      <p
+        class="text-left text-gray-200 text-base sm:text-lg max-w-2xl mx-auto mb-12"
+      >
+        Creamos sitios web funcionales, atractivos y optimizados, pensando en la
+        experiencia del usuario y el rendimiento. Ya sea que elijas plataformas
+        como WordPress u Odoo por su flexibilidad y facilidad de gestión, o
+        soluciones 100% personalizadas sin CMS para un control absoluto del
+        código, te ofrecemos lo mejor en diseño web, optimización, branding,
+        velocidad y escalabilidad. Descubre todo lo que podemos hacer por tu
+        presencia digital:
+      </p>
+
+      <section class="max-w-6xl mx-auto px-4 py-12 text-gray-100">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Card: CMS -->
+          <div class="bg-gray-800 rounded-2xl p-6 shadow-lg">
+            <h3
+              class="text-2xl font-bold mb-6 text-cyan-400 flex items-center gap-2"
+            >
+              Sitios Web Con CMS
+            </h3>
+            <p class="text-white mb-6 text-sm sm:text-base">
+              Ideal para negocios que requieren una plataforma fácil de
+              administrar y personalizar.
+            </p>
+
+            <ul
+              class="list-disc list-inside text-sm space-y-2 text-white text-left mb-6"
+            >
+              <li>Panel de administración amigable</li>
+              <li>Plantillas personalizadas</li>
+              <li>Plugins para SEO, formularios, etc.</li>
+              <li>Responsive y optimizado para buscadores</li>
+              <li>Integraciones con redes y analítica</li>
+            </ul>
+            <p class="text-sm text-white font-bold mb-3">
+              ✔ Bajo costo &nbsp; ✔ Fácil mantenimiento
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Feature 1 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/452136/wordpress.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <h4 class="font-semibold text-white">WordPress</h4>
+                <p class="text-sm text-gray-200">
+                  Temas rápidos, plugins profesionales y copias de seguridad.
+                </p>
+              </div>
+
+              <!-- Feature 2 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/202978/graphic-design-book.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">Herrada</h4>
+                  <p class="text-sm">
+                    Diseño gráfico, logotipos y branding completo.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Feature 3 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/187411/worldwide-seo-and-web.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">SEO & SEM</h4>
+                  <p class="text-sm">
+                    Optimización, publicidad PPC y redes sociales.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Feature 4 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/293560/smartphone-iphone.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">Mobile First</h4>
+                  <p class="text-sm">
+                    Diseño adaptado primero a móviles y luego a escritorio.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Sin CMS -->
+          <div class="bg-gray-800 rounded-2xl p-6 shadow-lg">
+            <h3
+              class="text-2xl font-bold mb-6 text-cyan-400 flex items-center gap-2"
+            >
+              Sitios Web Sin CMS (Personalizada)
+            </h3>
+            <p class="text-white mb-4 text-sm sm:text-base">
+              Para empresas que requieren soluciones avanzadas, con alto
+              rendimiento y control total.
+            </p>
+
+            <p class="text-sm text-white mb-2">
+              <span class="font-medium">Stack:</span> React, Astro, Tailwind CSS,
+              Laravel, Node.js, APIs REST/GraphQL, Firebase, Docker, MySQL, MongoDB.
+            </p>
+            <ul
+              class="list-disc list-inside text-sm space-y-2 text-white text-left mb-3"
+            >
+              <li>Alto rendimiento</li>
+              <li>Seguridad avanzada</li>
+              <li>Escalabilidad total</li>
+              <li>Diseño exclusivo y moderno</li>
+            </ul>
+            <p class="font-medium text-sm text-white mb-2">
+              ✔ Personalización total &nbsp; ✔ Escalabilidad garantizada
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Feature 1 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/293224/views-eye.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">UX/UI a medida</h4>
+                  <p class="text-sm">
+                    Interfaces personalizadas según el usuario final.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Feature 2 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/411136/code.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">Desarrollo a medida</h4>
+                  <p class="text-sm">
+                    Backend y frontend personalizados, sin dependencias.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Feature 3 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/220473/seo.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">SEO técnico</h4>
+                  <p class="text-sm">
+                    Optimización directa del código para buscadores.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Feature 4 -->
+              <div
+                class="bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center w-full max-w-xs"
+              >
+                <img
+                  class="rounded mb-4"
+                  src="https://www.svgrepo.com/show/215692/bar-chart-graph.svg"
+                  alt="Ícono de WordPress"
+                  style="width: 60px; height: 60px; object-fit: contain;"
+                />
+                <div>
+                  <h4 class="font-semibold text-white">Escalabilidad</h4>
+                  <p class="text-sm">
+                    Diseño modular preparado para crecer sin límites.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="relative bg-gray-900 py-12 px-6 md:px-12 overflow-hidden">
+      <!-- Video de fondo -->
+      <video
+        class="absolute top-0 left-0 w-full h-full object-cover opacity-30 z-0"
+        src="/lemaService.mp4"
+        autoplay
+        muted
+        loop
+        playsinline></video>
+
+      <!-- Contenido en primer plano -->
+      <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+          Diseño Web de Alto Rendimiento en Utah
+        </h2>
+        <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+          En el mundo digital actual, <span class="text-cyan-400 font-semibold"
+            >la rapidez y la experiencia del usuario son esenciales</span
+          >. Por eso, nuestros diseñadores web en Utah crean sitios que <span
+            class="text-cyan-400 font-semibold"
+            >cargan de forma instantánea</span
+          >, se adaptan a todos los dispositivos y ofrecen una navegación fluida
+          desde el primer clic. Al priorizar la <span
+            class="text-cyan-400 font-semibold"
+            >comodidad del cliente, la eficiencia y la estética</span
+          >, tu sitio no solo impresionará, sino que también convertirá más
+          visitas en ventas reales.
+        </p>
+      </div>
+
+      <!-- Call to action -->
+      <div class="relative z-10 mt-16 text-center">
+        <p class="text-gray-200 mb-6 text-base sm:text-lg">
+          ¿Listo para impulsar tu negocio?
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a
+            href="#budget"
+            class="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition"
+          >
+            Solicitar presupuesto
+          </a>
+          <a
+            href="#portfolio"
+            class="px-6 py-3 border border-white text-white rounded-full font-medium hover:bg-gray-100 hover:text-black transition"
+          >
+            Nuestro trabajo
+          </a>
+        </div>
+      </div>
+
+      <!-- Capa oscura opcional para mejorar contraste -->
+      <div class="absolute inset-0 bg-black opacity-20 z-0"></div>
+    </section>
+
+    <section class="relative py-16 px-6 md:px-12 bg-cover bg-center" style="background-image: url('/procesoService.jpg');">
+  <div class="absolute inset-0 bg-black/60"></div> <!-- Capa oscura para mejor contraste -->
+
+  <div class="relative max-w-7xl mx-auto text-white">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">
+      Nuestro Proceso de Diseño Web en Utah
+    </h2>
+    <p class="text-base sm:text-lg text-center leading-relaxed mb-12">Su visión y nuestra experiencia se unen para crear un sitio web que le genere más clientes. A continuación, un resumen del proceso de diseño que utilizamos para nuestros clientes de diseño web en Salt Lake City:</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Fase 1 -->
+      <div class="flex flex-col items-start text-left">
+        <div class="flex items-center mb-4">
+          <img src="https://www.svgrepo.com/show/418909/education-note-notes.svg" width="50" height="50" alt="">
+        </div>
+        <h3 class="text-lg font-bold">1. Fase <strong class="text-cyan-400">de descubrimiento</strong></h3>
+        <p class="text-sm text-white/90">
+          Nos adentramos en la recopilación de información sobre su negocio mediante las preguntas adecuadas...
+        </p>
+      </div>
+
+      <!-- Fase 2 -->
+      <div class="flex flex-col items-start text-left">
+        <div class="flex items-center mb-4">
+          <img src="https://www.svgrepo.com/show/269347/notebook-art-and-design.svg" width="50" height="50" alt="">
+        </div>
+        <h3 class="text-lg font-bold">2. Fase <strong class="text-cyan-400">de diseño</strong></h3>
+        <p class="text-sm text-white/90">
+          Te enviaremos un concepto de diseño preliminar para que lo revises...
+        </p>
+      </div>
+
+      <!-- Fase 3 -->
+      <div class="flex flex-col items-start text-left">
+           <div class="flex items-center mb-4">
+          <img src="https://www.svgrepo.com/show/411643/code.svg" width="50" height="50" alt="">
+        </div>
+        <h3 class="text-lg font-bold">3. Fase <strong class="text-cyan-400">de desarrollo</strong></h3>
+        <p class="text-sm text-white/90">
+          Le enviaremos un enlace de prueba al sitio web completo...
+        </p>
+      </div>
+
+      <!-- Fase 4 -->
+      <div class="flex flex-col items-start text-left">
+          <div class="flex items-center mb-4">
+          <img src="https://www.svgrepo.com/show/202956/startup-rocket.svg" width="50" height="50" alt="">
+        </div>
+        <h3 class="text-lg font-bold">4. Fase <strong class="text-cyan-400">de despliegue</strong></h3>
+        <p class="text-sm text-white/90">
+          Tras recibir la autorización, lanzamos su sitio web...
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<Footer />
+
+
+  </body>
+</html>
+
+<script>
+  const phrases = [
+    {
+      text: "Se ajusta perfectamente a cualquier pantalla  ",
+      color: "text-cyan-500 text-shadow-lg/30",
+    },
+    {
+      text: "Luce bien en computadoras, tablets y celulares  ",
+      color: "text-indigo-600 text-shadow-lg/30",
+    },
+    {
+      text: "Pensado para funcionar primero en tu celular  ",
+      color: "text-indigo-300 text-shadow-lg/30",
+    },
+  ];
+
+  let i = 0;
+  let j = 0;
+  let isDeleting = false;
+  const speed = 100;
+  const target = document.getElementById("typewriter");
+
+  function type() {
+    const currentPhrase = phrases[i];
+    const displayed = isDeleting
+      ? currentPhrase.text.substring(0, j--)
+      : currentPhrase.text.substring(0, j++);
+
+    if (!target) return;
+    target.innerHTML = `<span class="${currentPhrase.color}">${displayed}</span>`;
+
+    if (!isDeleting && j === currentPhrase.text.length) {
+      isDeleting = true;
+      setTimeout(type, 1000); // Espera antes de borrar
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % phrases.length;
+      setTimeout(type, 300);
+    } else {
+      setTimeout(type, isDeleting ? 80 : 100);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+</script>

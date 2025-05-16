@@ -18,10 +18,18 @@
     "subNavParrafoServiceitem6": "soporte continuo y confiable.",
     "navInfo": "INFO",
 
+
     "Servicios":"Comentarios contenido de servicios",
     "tituloServicio":"🚀 Nuestros Servicios",
     "servicioParrafo1":"Nos especializamos en el desarrollo personalizado en WordPress y en estrategias de marketing para e-commerce, diseñadas para impulsar el crecimiento de tu negocio. Con base en Salt Lake City y atención en todo Utah, ayudamos a pequeñas y medianas empresas a destacarse en el entorno digital.",
     "servicioParrafo2":"Desde sitios web WordPress modernos y responsivos hasta campañas de marketing enfocadas en resultados, trabajamos contigo de manera cercana para crear experiencias online efectivas que atraigan, conviertan y fidelicen a tus clientes.",
-    "servicioParrafo3":"No solo te ayudamos a adquirir nuevos clientes a un menor costo, sino también a aumentar el valor de tus clientes actuales mediante estrategias de marketing inteligentes y personalizadas. 📅 Agenda una consulta gratuita con nuestro equipo de expertos y construyamos juntos la historia de éxito digital de tu marca."
+    "servicioParrafo3":"No solo te ayudamos a adquirir nuevos clientes a un menor costo, sino también a aumentar el valor de tus clientes actuales mediante estrategias de marketing inteligentes y personalizadas. 📅 Agenda una consulta gratuita con nuestro equipo de expertos y construyamos juntos la historia de éxito digital de tu marca.",
+    "saberMas":"Saber Mas",
+    
+      "phrases": [
+    "Transformamos tu presencia digital",
+    "Conectamos tu marca con tus clientes",
+    "Diseños que generan resultados"
+  ]
 
 }
