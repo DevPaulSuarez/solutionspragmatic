@@ -1,5 +1,5 @@
 ---
-import { sanity } from '../../lib/sanity'; // Asegúrate que el path es correcto
+import { sanity } from "../../lib/sanity"; // Asegúrate que el path es correcto
 
 type Project = {
   title: { es: string; en: string };
@@ -8,7 +8,7 @@ type Project = {
   technologies?: string[];
 };
 
-const { lang } = Astro.props as { lang: 'es' | 'en' };
+const { lang } = Astro.props as { lang: "es" | "en" };
 
 // Traemos los proyectos desde Sanity
 const data = await sanity.fetch<Project[]>(
@@ -27,50 +27,52 @@ const data = await sanity.fetch<Project[]>(
       }
     },
     technologies[] 
-  }`
+  }`,
 );
 
 const projects = data ?? [];
 ---
-
-<section id="portafolio" class="py-16">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-gray-100 mb-10">Nuestros proyectos</h2>
+    <section
+      id="beneficios"
+      class="relative py-25 px-6 md:px-12 overflow-hidden"
+    >  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-100 mb-10">
+      Nuestros proyectos
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-8">
-      {projects.map((project, index) => (
-        <div
-          class="bg-white rounded-lg shadow hover:shadow-lg transition"
-        >
-          {/* Imagen */}
-          <img
-            src={project.image?.asset?.url ?? '/default-image.jpg'}
-            alt={project.title?.[lang] ?? 'Proyecto'}
-            class="rounded-t-lg w-full h-48 object-cover"
-          />
+      {
+        projects.map((project, index) => (
+          <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+            {/* Imagen */}
+            <img
+              src={project.image?.asset?.url ?? "/default-image.jpg"}
+              alt={project.title?.[lang] ?? "Proyecto"}
+              class="rounded-t-lg w-full h-48 object-cover"
+            />
 
-          <div class="p-4">
-            {/* Título */}
-            <h3 class="text-lg font-semibold text-gray-800 mb-1">
-              {project.title?.[lang] ?? 'Título no disponible'}
-            </h3>
+            <div class="p-4">
+              {/* Título */}
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                {project.title?.[lang] ?? "Título no disponible"}
+              </h3>
 
-            {/* Descripción */}
-            <p class="text-sm text-gray-600 mb-3">
-              {project.description?.[lang] ?? 'Descripción no disponible'}
-            </p>
+              {/* Descripción */}
+              <p class="text-sm text-gray-600 mb-3">
+                {project.description?.[lang] ?? "Descripción no disponible"}
+              </p>
 
-            {/* Tecnologías */}
-            <ul class="flex flex-wrap gap-2 text-xs text-white">
-              {project.technologies?.map((tech) => (
-                <li class="bg-blue-600 px-2 py-1 rounded-md">
-                  {tech}
-                </li>
-              ))}
-            </ul>
+              {/* Tecnologías */}
+              <ul class="flex flex-wrap gap-2 text-xs text-white">
+                {project.technologies?.map((tech) => (
+                  <li class="bg-cyan-700 px-2 py-2  text-white rounded hover:bg-gray-600 hover:text-white hover:transition hover:duration-300 active:bg-black">{tech}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
-</section>
+    </section>
+
