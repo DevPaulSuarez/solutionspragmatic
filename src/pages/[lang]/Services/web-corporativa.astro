@@ -1,0 +1,328 @@
+---
+import "../../../styles/global.css";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import Proyecto from ".././proyectos.astro";
+
+import {
+  supportedLangs,
+  defaultLang,
+  translations,
+} from "../../../i18n/translations"; // Importando las traducciones
+
+
+// Definir prerender como true para prerenderizar las rutas dinámicas
+export const prerender = true;
+
+// Función para obtener las rutas dinámicas
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+// Obtiene el idioma de la URL o usa el idioma preferido del navegador
+const { lang } = Astro.params; // `lang` es de tipo `string`
+const validLang = supportedLangs.includes(lang as "es" | "en")
+  ? (lang as "es" | "en")
+  : defaultLang; // Validamos el idioma y lo restringimos a 'es' | 'en'
+
+const t = translations[validLang] || translations[defaultLang]; // Accedemos a las traducciones
+
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Servicios Web Personalizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="relative font-sans bg-gray-900 text-white">
+    <Header />
+
+    <!-- Fondo imagen -->
+    <div
+      class="fixed inset-0 bg-cover bg-center opacity-30 z-0"
+      style="background-image: url('https://www.ituser.es/files/202406/ia-servicios-financieros.jpg');"
+    >
+    </div>
+
+    <section class="relative py-25 px-6 md:px-12 overflow-hidden">
+      <!-- Contenedor flex para texto e imagen -->
+      <div
+        class="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 text-center md:text-left px-4 sm:px-0"
+      >
+        <!-- Texto -->
+        <div class="md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+            Web Corporativa
+          </h2>
+          <p class="text-gray-200 mb-4 text-sm sm:text-base">
+            Este servicio está diseñado para empresas, instituciones u
+            organizaciones que buscan fortalecer su imagen profesional en
+            internet. Desarrollamos sitios web institucionales con un enfoque en
+            credibilidad, claridad informativa y accesibilidad, permitiendo a
+            sus clientes, socios o usuarios conocer a fondo la misión, visión,
+            servicios, trayectoria y valores de su organización.
+          </p>
+        </div>
+
+        <!-- Imagen -->
+        <div class="md:w-1/2">
+          <img
+            src="/presencia.jpg"
+            alt="Diseño web"
+            class="w-full rounded-xl opacity-90 transition-transform duration-300 ease-in-out hover:scale-110"
+          />
+        </div>
+      </div>
+      <!-- Call to action -->
+      <div class="relative z-10 mt-16 text-center">
+        <p class="text-gray-200 mb-6 text-base sm:text-lg">
+          ¿Listo para impulsar tu negocio?
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a
+            href="#budget"
+            class="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition"
+          >
+            Solicitar presupuesto
+          </a>
+          <a
+            href="#portfolio"
+            class="px-6 py-3 border border-white text-white rounded-full font-medium hover:bg-gray-100 hover:text-black transition"
+          >
+            Nuestro trabajo
+          </a>
+        </div>
+      </div>
+
+      <!-- Capa oscura opcional para mejorar contraste -->
+      <div class="absolute inset-0 bg-black opacity-20 z-0"> </div>
+    </section>
+
+    <section id="beneficios">
+            <div
+        class="relative z-10 max-w-5xl mx-auto  md:flex-row items-center gap-8 text-center md:text-left px-4 sm:px-0"
+      >
+              <h2 class="text-3xl font-bold text-center text-gray-100 mb-10">
+          ¿Por qué elegirnos?
+        </h2>
+                  <div class="max-w-5xl mx-auto mt-10 mb-10">
+        <p class="text-white mb-4 text-sm sm:text-base">
+          Al optar por este servicio, implementaremos un diseño elegante y
+          adaptable (responsive), con secciones personalizadas como:
+        </p>
+
+        <ul
+          class="list-disc list-inside text-white mb-4 text-sm sm:text-base space-y-1"
+        >
+          <li>Inicio institucional con mensaje clave y llamado a la acción</li>
+          <li>Nosotros: historia, misión, visión y equipo de trabajo</li>
+          <li>Servicios ofrecidos con descripciones claras</li>
+          <li>Galería o portafolio institucional</li>
+          <li>Sección de noticias o novedades (opcional)</li>
+          <li>Formulario de contacto funcional y seguro</li>
+          <li>Integración con redes sociales y mapa de ubicación</li>
+        </ul>
+      </div>
+      <div class="max-w-6xl mx-auto px-4">
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <img
+              src="/icons/professional.svg"
+              alt="Imagen profesional"
+              class="mx-auto mb-4 w-12 h-12"
+            />
+            <h3 class="text-xl font-semibold mb-2">Imagen Profesional</h3>
+            <p class="text-gray-50">
+              Refuerza la confianza de tus clientes con un diseño corporativo
+              sólido y profesional.
+            </p>
+          </div>
+          <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <img
+              src="/icons/responsive.svg"
+              alt="Diseño Responsive"
+              class="mx-auto mb-4 w-12 h-12"
+            />
+            <h3 class="text-xl font-semibold mb-2">Diseño Responsive</h3>
+            <p class="text-gray-50">
+              Tu web se verá perfecta en computadoras, tablets y celulares.
+            </p>
+          </div>
+          <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <img
+              src="/icons/seo.svg"
+              alt="SEO Optimizado"
+              class="mx-auto mb-4 w-12 h-12"
+            />
+            <h3 class="text-xl font-semibold mb-2">SEO Optimizado</h3>
+            <p class="text-gray-50">
+              Mejoramos tu presencia en Google para atraer más visitas y
+              clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+</div>
+    </section>
+
+    <section>
+        <Proyecto lang={validLang} />
+    </section>
+
+
+    <section id="planes" >
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+          Planes para cada necesidad
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Plan Básico -->
+          <div class="border p-6 rounded-lg shadow hover:shadow-lg">
+            <h3 class="text-xl font-bold mb-2 text-blue-600">Plan Básico</h3>
+            <p class="text-gray-50 mb-4">Ideal para emprendedores.</p>
+            <ul class="text-sm text-gray-700 space-y-2 mb-6">
+              <li>✔ 1 a 5 secciones</li>
+              <li>✔ Diseño adaptable</li>
+              <li>✔ Formulario de contacto</li>
+            </ul>
+            <button
+              class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >Cotizar</button
+            >
+          </div>
+          <!-- Plan Corporativo -->
+          <div class="border p-6 rounded-lg shadow hover:shadow-lg">
+            <h3 class="text-xl font-bold mb-2 text-blue-600">
+              Plan Corporativo
+            </h3>
+            <p class="text-gray-50 mb-4">Empresas medianas</p>
+            <ul class="text-sm text-gray-700 space-y-2 mb-6">
+              <li>✔ Hasta 10 secciones</li>
+              <li>✔ SEO básico</li>
+              <li>✔ formularios avanzados</li>
+            </ul>
+            <button
+              class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >Cotizar</button
+            >
+          </div>
+          <!-- Repetir con cambios -->
+          <div class="border p-6 rounded-lg shadow hover:shadow-lg">
+            <h3 class="text-xl font-bold mb-2 text-blue-600">Plan Premium</h3>
+            <p class="text-gray-50 mb-4">Grandes empresas</p>
+            <ul class="text-sm text-gray-700 space-y-2 mb-6">
+              <li>✔ Multilenguaje</li>
+              <li>✔ integración con CRM</li>
+              <li>✔ optimización avanzada</li>
+            </ul>
+            <button
+              class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >Cotizar</button
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-16">
+          ¿Cómo trabajamos?
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-5 gap-4 text-gray-700 text-sm"
+        >
+          <!-- Paso 1 -->
+          <div
+            class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition transform md:translate-y-16"
+          >
+            <h3 class="font-semibold text-center mb-1">Reunión inicial</h3>
+            <p class="text-center">
+              Escuchamos tus ideas, necesidades y objetivos. Entendemos tu
+              negocio para proponerte la mejor solución digital.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div
+            class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition transform md:translate-y-12"
+          >
+            <h3 class="font-semibold text-center mb-1">Diseño personalizado</h3>
+            <p class="text-center">
+              Creamos un diseño atractivo, moderno y alineado con tu identidad
+              visual, enfocado en la experiencia del usuario.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div
+            class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition transform md:translate-y-8"
+          >
+            <h3 class="font-semibold text-center mb-1">Desarrollo web</h3>
+            <p class="text-center">
+              Convertimos el diseño en una solución funcional, rápida y
+              escalable usando tecnologías modernas y buenas prácticas.
+            </p>
+          </div>
+
+          <!-- Paso 4 -->
+          <div
+            class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition transform md:translate-y-4"
+          >
+            <h3 class="font-semibold text-center mb-1">Pruebas y revisión</h3>
+            <p class="text-center">
+              Realizamos pruebas técnicas y validaciones con el cliente para
+              garantizar que todo funcione correctamente antes de lanzar.
+            </p>
+          </div>
+
+          <!-- Paso 5 -->
+          <div
+            class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition transform md:translate-y-0"
+          >
+            <h3 class="font-semibold text-center mb-1">Entrega y soporte</h3>
+            <p class="text-center">
+              Publicamos tu sitio o sistema y te damos soporte técnico para que
+              funcione sin problemas desde el primer día.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+          Preguntas frecuentes
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700">
+              ¿Cuánto demora una página web corporativa?
+            </h3>
+            <p class="text-gray-50 text-sm">
+              En promedio entre 7 a 15 días dependiendo del contenido y
+              funcionalidades.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700">
+              ¿Puedo autogestionar mi contenido?
+            </h3>
+            <p class="text-gray-50 text-sm">
+              Sí, todas nuestras webs incluyen un panel de administración
+              sencillo.
+            </p>
+          </div>
+          <!-- Agregar más preguntas -->
+        </div>
+      </div>
+    </section>
+    <Footer />
+  </body>
+</html>

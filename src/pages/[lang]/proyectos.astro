@@ -1,10 +1,17 @@
 ---
-import { sanity } from '../../lib/sanity'; // Asegúrate de que este archivo esté correctamente configurado
+import { sanity } from '../../lib/sanity'; // Asegúrate que el path es correcto
 
-const { lang } = Astro.props; // Obtén el idioma desde las propiedades de Astro
+type Project = {
+  title: { es: string; en: string };
+  description: { es: string; en: string };
+  image?: { asset?: { url: string } };
+  technologies?: string[];
+};
 
-// Consulta a Sanity para obtener el título, la descripción, la imagen y las tecnologías
-const data = await sanity.fetch(
+const { lang } = Astro.props as { lang: 'es' | 'en' };
+
+// Traemos los proyectos desde Sanity
+const data = await sanity.fetch<Project[]>(
   `*[_type == "project"] {
     title {
       es,
@@ -23,39 +30,47 @@ const data = await sanity.fetch(
   }`
 );
 
-// Si no encuentra datos, usa valores por defecto
-const projects = data ?? []; // Si no hay proyectos, usamos un array vacío
+const projects = data ?? [];
 ---
 
-<div class="projects">
-  {projects.map((project: { 
-    title: { es: string; en: string }; 
-    description: { es: string; en: string }; 
-    image: { asset: { url: string } }; 
-    technologies: string[]; 
-  }) => (
-    <div class="project-card">
-      <!-- Título del Proyecto -->
-      <h2>{project.title[lang as 'es' | 'en'] ?? 'Título no disponible'}</h2>
-      
-      <!-- Descripción del Proyecto -->
-      <p>{project.description[lang as 'es' | 'en'] ?? 'Descripción no disponible'}</p>
-      
-      <!-- Imagen del Proyecto -->
-      <img 
-        src={project.image?.asset?.url ?? 'default-image.jpg'} 
-        alt={project.title[lang as 'es' | 'en']} 
-        class="project-image"
-      />
-      
-      <!-- Tecnologías del Proyecto -->
-      <ul class="technologies">
-        {project.technologies?.map((tech: string) => (
-          <Fragment>
-            <li>{tech}</li>  <!-- 'key' no se necesita aquí, ya que no hay una iteración a nivel de 'li' -->
-          </Fragment>
-        ))}
-      </ul>
+<section id="portafolio" class="py-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-100 mb-10">Nuestros proyectos</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div
+          class="bg-white rounded-lg shadow hover:shadow-lg transition"
+        >
+          {/* Imagen */}
+          <img
+            src={project.image?.asset?.url ?? '/default-image.jpg'}
+            alt={project.title?.[lang] ?? 'Proyecto'}
+            class="rounded-t-lg w-full h-48 object-cover"
+          />
+
+          <div class="p-4">
+            {/* Título */}
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">
+              {project.title?.[lang] ?? 'Título no disponible'}
+            </h3>
+
+            {/* Descripción */}
+            <p class="text-sm text-gray-600 mb-3">
+              {project.description?.[lang] ?? 'Descripción no disponible'}
+            </p>
+
+            {/* Tecnologías */}
+            <ul class="flex flex-wrap gap-2 text-xs text-white">
+              {project.technologies?.map((tech) => (
+                <li class="bg-blue-600 px-2 py-1 rounded-md">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
+  </div>
+</section>
