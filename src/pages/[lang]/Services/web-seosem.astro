@@ -1,0 +1,236 @@
+---
+import "../../../styles/global.css";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import Proyecto from ".././proyectos.astro";
+
+import {
+  supportedLangs,
+  defaultLang,
+  translations,
+} from "../../../i18n/translations";
+
+// Definir prerender como true para prerenderizar las rutas dinámicas
+export const prerender = true;
+
+// Función para obtener las rutas dinámicas
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+// Extraer el idioma de los parámetros de URL
+const { lang } = Astro.params;
+const validLang = supportedLangs.includes(lang as "es" | "en")
+  ? (lang as "es" | "en")
+  : defaultLang;
+
+const t = translations[validLang] || translations[defaultLang];
+---
+
+<html lang={validLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Servicios Web Personalizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="relative font-sans bg-gray-900 text-white">
+    <Header />
+
+    <!-- Fondo imagen -->
+    <div
+      class="fixed inset-0 bg-cover bg-center opacity-30 z-0"
+      style="background-image: url('https://posicionamiento-web.barcelona/wp-content/uploads/2023/11/seo-1.png');"
+    ></div>
+
+    <section class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10 px-4 md:px-0 py-10">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-50 mb-6 uppercase">
+            Servicios de SEO :
+          </h1>
+          <p class="text-3xl md:text-5xl font-bold text-gray-50 mb-6 min-h-[70px]">
+            <span id="typewriter"></span>
+          </p>
+
+          <p class="text-lg text-gray-50 mb-6">
+            En la era digital, más del <span class="font-semibold">80%</span> de
+            los consumidores buscan un producto o servicio en línea antes de tomar
+            una decisión de compra. La pregunta es: <span class="font-semibold">
+              ¿están encontrando tu sitio web o el de tu competencia?
+            </span>
+          </p>
+          <p class="text-lg text-gray-50 mb-6">
+            En <span class="font-semibold">Solutions Pragmatic</span>, somos una
+            agencia especializada en <span class="font-semibold">
+              posicionamiento SEO en Utah
+            </span>, y ayudamos a negocios como el tuyo a aumentar su visibilidad
+            en Google y otros motores de búsqueda. Nuestro objetivo es claro:
+            <span class="font-semibold">atraer más clientes.</span>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-gray-50">
+          ¿Qué hace una agencia de posicionamiento SEO?
+        </h2>
+        <p class="text-lg text-gray-50 mb-6">
+          Una agencia SEO trabaja para mejorar el posicionamiento de tu sitio
+          web en los resultados de búsqueda. Esto incluye:
+        </p>
+        <ul class="list-disc list-inside text-lg text-gray-50 space-y-2 mb-8 text-left">
+          <li><span class="font-medium">Análisis de palabras clave</span> relevantes para tu industria.</li>
+          <li><span class="font-medium">Optimización técnica</span> de tu sitio web.</li>
+          <li><span class="font-medium">Creación de contenido de alto valor</span> para tus usuarios.</li>
+          <li><span class="font-medium">Estrategias de linkbuilding</span> y autoridad de dominio.</li>
+          <li><span class="font-medium">Mejoras en la experiencia de usuario</span> y velocidad de carga.</li>
+        </ul>
+
+        <div class="bg-white border-l-4 border-cyan-800 p-6 rounded-xl">
+          <p class="text-xl text-cyan-600 font-semibold">
+            🚀 Haz que te encuentren primero.
+          </p>
+          <p class="text-lg text-cyan-600 mt-2">
+            Contáctanos hoy y lleva tu negocio al siguiente nivel con SEO estratégico.
+          </p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <a
+              href="/contacto"
+              class="px-6 py-3 border border-black text-black rounded-full font-medium hover:bg-gray-800 hover:text-white transition m-5"
+            >
+              Pide tu consultoría GRATIS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-2 px-6 md:px-12 overflow-hidden">
+      <div class="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 text-center md:text-left px-4 py-25 sm:px-0">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wide">
+            Nuestro Proceso SEO Profesional
+          </h2>
+          <p>
+            El SEO no es una solución universal. Diseñamos estrategias de SEO únicas para cada campaña. A continuación, verá un resumen general de cómo funciona nuestro proceso de SEO.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">1. Investigación de Palabras Clave</h3>
+              <p class="text-cyan-600">Identificamos oportunidades reales con alto potencial de búsqueda y baja competencia.</p>
+            </div>
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">2. Optimización On-Page</h3>
+              <p class="text-cyan-600">Aplicamos mejoras técnicas y de contenido en tu sitio web para maximizar el posicionamiento.</p>
+            </div>
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">3. Redacción Estratégica</h3>
+              <p class="text-cyan-600">Creamos contenido relevante y valioso que responde a las búsquedas de tus clientes potenciales.</p>
+            </div>
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">4. Construcción de Enlaces</h3>
+              <p class="text-cyan-600">Generamos enlaces desde sitios confiables que refuerzan tu autoridad ante Google.</p>
+            </div>
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">5. Análisis y Métricas</h3>
+              <p class="text-cyan-600">Medimos el rendimiento con herramientas avanzadas y ajustamos la estrategia continuamente.</p>
+            </div>
+            <div class="bg-white border border-cyan-500 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-cyan-600 mb-2">6. Optimización con IA</h3>
+              <p class="text-cyan-600">Utilizamos inteligencia artificial para afinar tu contenido y adelantarnos a la competencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-black opacity-20 z-0"></div>
+    </section>
+
+    <section class="bg-auto text-white py-20 px-6 md:px-12">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    
+    <!-- Columna de texto -->
+    <div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wide">
+        ¿Cómo trabajamos el SEO en Solutions Pragmatic?
+      </h2>
+      <p class="text-lg mb-4 leading-relaxed">
+        En Solutions Pragmatic realizamos una auditoría SEO completa para detectar puntos débiles y oportunidades no explotadas. A partir de ello, diseñamos una <strong>estrategia personalizada</strong> centrada en mejorar estructura, contenido, usabilidad y visibilidad local.
+      </p>
+      <p class="text-lg mb-4 leading-relaxed">
+        Nuestro enfoque incluye la <strong>optimización técnica</strong>, el uso estratégico de <strong>palabras clave</strong>, la creación de <strong>enlaces externos de calidad</strong> y la implementación de <strong>SEO Local</strong> para atraer clientes de tu ciudad o región.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Sabemos que el SEO requiere tiempo, por eso <strong>monitoreamos constantemente</strong> los resultados y adaptamos la estrategia según el comportamiento del mercado y los motores de búsqueda.
+      </p>
+    </div>
+
+    <!-- Columna de imagen -->
+    <div class="flex justify-center">
+      <img 
+        src="https://posicionamiento-web.barcelona/wp-content/uploads/2023/11/seo.png" 
+        alt="Estrategia SEO y SEM Solutions Pragmatic"
+        class="w-full h-auto max-w-md rounded-xl "
+      />
+    </div>
+
+  </div>
+</section>
+
+
+    <Footer />
+  </body>
+</html>
+
+
+<script>
+  const phrases = [
+    {
+      text: "Haz que tus clientes te encuentren primero  ",
+      color: "text-white font-bold",
+    },
+    {
+      text: "SEO que convierte búsquedas en ventas  ",
+      color: "text-white font-bold",
+    },
+    {
+      text: "Posicionamos tu negocio en Google  ",
+      color: "text-white font-bold",
+    },
+    {
+      text: "Atrae tráfico orgánico  ",
+      color: "text-white font-bold",
+    },
+  ];
+
+  let i = 0;
+  let j = 0;
+  let isDeleting = false;
+  const speed = 100;
+  const target = document.getElementById("typewriter");
+
+  function type() {
+    const currentPhrase = phrases[i];
+    const displayed = isDeleting
+      ? currentPhrase.text.substring(0, j--)
+      : currentPhrase.text.substring(0, j++);
+
+    if (!target) return;
+    target.innerHTML = `<span class="${currentPhrase.color}">${displayed}</span>`;
+
+    if (!isDeleting && j === currentPhrase.text.length) {
+      isDeleting = true;
+      setTimeout(type, 1500); // Pausa antes de borrar
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % phrases.length;
+      setTimeout(type, 300); // Pausa antes de escribir la siguiente
+    } else {
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+</script>
