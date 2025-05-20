@@ -1,0 +1,180 @@
+---
+import "../../../styles/global.css";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+---
+  <head>
+    <meta charset="UTF-8" />
+    <title>Servicios Web Personalizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+<Header />
+
+<!-- Fondo imagen -->
+<div
+  class="fixed inset-0 bg-cover bg-center opacity-30 z-0"
+  style="background-image: url('https://mainleaf.com/wp-content/uploads/2025/02/Pessoas-programando-2-1536x861.jpg');"
+></div>
+
+<main class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+  <section class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10 px-4 md:px-0 py-10">
+    
+    <!-- Columna izquierda -->
+    <div class="md:w-[50%] text-left">
+      <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">
+        Automatiza tu atención 24/7 con IA
+      </h1>
+      <p class="text-lg md:text-xl text-gray-50 mb-4">
+        Chatbots y correos inteligentes que responden por ti, incluso mientras duermes.
+      </p>
+      <p class="text-base md:text-lg text-gray-50 mb-8">
+        Brinda respuestas inmediatas y profesionales en todo momento. Nuestros chatbots conversacionales capturan clientes potenciales, califican prospectos, programan citas y conectan con tu equipo comercial. Complementamos con emails automáticos que fidelizan y recuperan oportunidades, maximizando cada contacto.
+      </p>
+      <a
+        href="#contacto"
+        class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300"
+      >
+        Automatiza tu negocio hoy
+      </a>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="md:w-[50%] flex flex-col items-center md:items-start">
+      <div class="group overflow-hidden rounded-xl shadow-lg w-full max-w-3xl">
+        <img
+          src="https://itforum.com.br/wp-content/uploads/2024/12/Agentes-de-IA-2.jpg.webp"
+          alt="Representación gráfica de agentes de IA"
+          class="w-full rounded-xl opacity-90 transition-transform duration-300 ease-in-out group-hover:scale-110"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de beneficios -->
+  <section class="relative w-full h-full overflow-hidden py-20">
+    <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 space-y-20 text-white">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Atención al cliente sin interrupciones
+          </h2>
+          <p class="text-lg md:text-xl text-gray-200 mb-4">
+            Automatiza las preguntas frecuentes y mejora la experiencia de tus clientes.
+          </p>
+          <p class="text-base md:text-lg text-gray-300 mb-6">
+            Tus clientes reciben respuestas instantáneas sobre productos, envíos, devoluciones y más. Nuestro sistema aprende de cada conversación y se adapta a tus necesidades.
+          </p>
+          <a href="#contacto" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Optimiza tu atención al cliente
+          </a>
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Bots de chat con IA que entienden y responden
+          </h2>
+          <p class="text-lg md:text-xl text-gray-200 mb-4">
+            Conecta con tus visitantes en tiempo real, incluso cuando no estás disponible.
+          </p>
+          <p class="text-base md:text-lg text-gray-300 mb-6">
+            Nuestros bots analizan el lenguaje natural y ofrecen respuestas útiles que simulan conversaciones humanas.
+          </p>
+          <a href="#contacto" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Integra tu bot con IA
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Asistente virtual para tu tienda online
+          </h2>
+          <p class="text-lg md:text-xl text-gray-200 mb-4">
+            Aumenta las ventas guiando a tus clientes hacia el producto ideal.
+          </p>
+          <p class="text-base md:text-lg text-gray-300 mb-6">
+            Recomienda productos, verifica disponibilidad, asiste en pagos y ofrece soporte postventa.
+          </p>
+          <a href="#contacto" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Potencia tu tienda online
+          </a>
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Comunicación directa con SMS automatizados
+          </h2>
+          <p class="text-lg md:text-xl text-gray-200 mb-4">
+            Llega a tus clientes en el canal más inmediato: su celular.
+          </p>
+          <p class="text-base md:text-lg text-gray-300 mb-6">
+            Envía confirmaciones, recordatorios, actualizaciones y promociones personalizadas mediante SMS.
+          </p>
+          <a href="#contacto" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Automatiza tus mensajes SMS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+  <div class="mb-12">
+    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      Email Marketing Estratégico<br />para Comercio Electrónico
+    </h2>
+    <p class="text-base md:text-lg text-gray-200 max-w-4xl mx-auto">
+      En SolutionsPragmatic, diseñamos estrategias de email marketing enfocadas en aumentar conversiones y fidelizar clientes,
+      combinando automatización, segmentación avanzada y análisis de comportamiento.
+      Muchas marcas cometen el error de enviar solo boletines mensuales o descuentos; nosotros implementamos flujos inteligentes adaptados a cada etapa del recorrido del cliente.
+    </p>
+  </div>
+
+  <!-- Imagen ilustrativa del recorrido del cliente -->
+  <div class="mb-20">
+    <img
+      src="https://ranksey.com/wp-content/uploads/2023/03/Email-Marketing-E-Commerce-1.png"
+      alt="Recorrido del cliente"
+      class="mx-auto max-w-4xl rounded-lg shadow-lg opacity-90 bg-amber-50"
+    />
+  </div>
+
+  <!-- Secciones divididas -->
+  <div class="grid md:grid-cols-3 gap-12 text-left">
+    
+    <!-- Flujos de correo automático -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Flujos de Email Automatizados</h3>
+      <p class="text-base md:text-lg text-gray-300 ">
+        Implementamos flujos automáticos adaptados a cada etapa del proceso de compra: bienvenida, abandono de carrito,
+        navegación sin conversión, seguimiento postventa y más. Realizamos pruebas A/B para optimizar resultados.
+      </p>
+    </div>
+
+    <!-- Campañas de correo -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Campañas por Email</h3>
+      <p class="text-base md:text-lg text-gray-300">
+        Creamos campañas profesionales con contenido relevante, lanzamientos de productos, promociones por temporada
+        y eventos clave. Incluimos diseño visual y redacción estratégica, siempre con un calendario editorial planificado.
+      </p>
+    </div>
+
+    <!-- Gestión de listas -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Gestión de Listas de Suscriptores</h3>
+      <p class="text-base md:text-lg text-gray-300">
+        Optimizamos continuamente tus listas de correo: limpieza de contactos inactivos, segmentación por intereses y
+        comportamiento, detección de spam y mejora en la entregabilidad. También potenciamos tu captación desde el sitio web.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<Footer />
