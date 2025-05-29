@@ -1,0 +1,522 @@
+---
+import "../../../styles/global.css";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import Proyecto from ".././proyectos.astro";
+
+import {
+  supportedLangs,
+  defaultLang,
+  translations,
+} from "../../../i18n/translations"; // Importando las traducciones
+
+// Definir prerender como true para prerenderizar las rutas dinámicas
+export const prerender = true;
+
+// Función para obtener las rutas dinámicas
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+// Obtiene el idioma de la URL o usa el idioma preferido del navegador
+const { lang } = Astro.params; // `lang` es de tipo `string`
+const validLang = supportedLangs.includes(lang as "es" | "en")
+  ? (lang as "es" | "en")
+  : defaultLang; // Validamos el idioma y lo restringimos a 'es' | 'en'
+
+const t = translations[validLang] || translations[defaultLang]; // Accedemos a las traducciones
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mantenimiento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="relative font-sans bg-gray-900 text-white">
+    <Header />
+
+    <!-- Fondo imagen -->
+    <div
+      class="fixed inset-0 bg-cover bg-center opacity-30 z-0"
+      style="background-image: url('https://www.g4a.mx/www/wp-content/uploads/2022/02/shutterstock_1304284765.jpg');"
+    >
+    </div>
+    <section
+      class="relative flex items-center justify-center h-[80vh] px-6 md:px-12 overflow-hidden"
+    >
+      <!-- Fondo imagen -->
+      <div
+        class="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+        style="background-image: url('https://www.g4a.mx/www/wp-content/uploads/2022/02/shutterstock_1304284765.jpg');"
+      >
+      </div>
+
+      <!-- Capa oscura opcional para mejorar contraste -->
+      <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+      <!-- Contenido principal -->
+      <div class="relative z-10 text-center text-white max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
+          Stay Ahead of the Curve with Reliable
+        </h1>
+        <div class="rotating-text-container mb-5">
+          <span
+            id="rotatingText"
+            class="rotating-text text-2xl md:text-4xl font-extrabold text-cyan-400"
+          ></span>
+        </div>
+        <p>
+          Somos sus socios web a largo plazo. Un sitio web nunca está terminado;
+          para mantenerse competitivo, necesita actualizarlo constantemente. Le
+          acompañamos y le apoyamos mientras nos necesite. Haga clic a
+          continuación para solicitar su paquete.
+        </p>
+      </div>
+    </section>
+
+    <section class="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+      <div class="mb-12">
+        <h2
+          class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+        >
+          Todo lo que necesitas para que tu sitio web funcione sin problemas
+        </h2>
+        <div class="fl-module fl-module-heading mt-2">
+          <h3 class="fl-heading text-xl font-medium">
+            Permítanos encargarnos de su sitio web para que usted pueda volver a
+            gestionar su negocio.
+          </h3>
+        </div>
+        <br />
+        <p class="text-base md:text-lg text-gray-200 max-w-4xl mx-auto">
+          Administración de sitios web con todo incluido y mantenimiento de
+          WordPress: confíe en nosotros para manejar las ediciones,
+          actualizaciones, correcciones y seguridad de su sitio web, lo que le
+          permitirá la libertad que necesita para concentrarse en su negocio.
+        </p>
+        <div class="fl-module fl-module-button mt-6 text-center">
+          <a
+            href="/web-maintenance/#maintenancePricing"
+            class="inline-block px-6 py-3 bg-indigo-800 text-white font-semibold rounded hover:bg-indigo-500 transition"
+          >
+            VER PRECIOS
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 m-8">
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <!-- Icono SVG de ejemplo -->
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/dedicated-account-manager.svg"
+                alt="imgCustomer"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Gerente de cuenta dedicado - Con sede en EE. UU.
+            </h4>
+            <p class="text-gray-600">
+              Acceda directamente a su administrador de sitio web dedicado en
+              EE. UU. Comuníquese con él en cualquier momento a través de su
+              correo electrónico y teléfono personal para recibir asistencia
+              eficiente y personalizada.
+            </p>
+            <br />
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/content-img-updates.svg"
+                alt="imgWebCoporativo"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Actualizaciones de contenido e imágenes del sitio web
+            </h4>
+            <p class="text-gray-600">
+              Simplemente llámenos o envíenos un correo electrónico siempre que
+              necesite un cambio en su sitio web y nos encargaremos de ello de
+              manera rápida y eficiente.
+            </p>
+            <br />
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/quick-turnaround-time.svg"
+                alt="imgSEM"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Tiempo de respuesta rápido
+            </h4>
+            <p class="text-gray-600">
+              Nuestro equipo completa rápidamente las tareas de su sitio web,
+              con la ayuda de nuestra conveniente herramienta de comentarios,
+              comprendemos con precisión sus requisitos, incluidos los clics,
+              los cambios deseados y los archivos adjuntos.
+            </p>
+            <br />
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/daily-maintenance.svg"
+                alt="imgStore"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Mantenimiento diario del sitio web
+            </h4>
+            <p class="text-gray-600">
+              Garantice la salud, la seguridad y la actualización de su sitio
+              web con nuestros servicios integrales. Nuestro equipo actualizará
+              plugins, temas y el núcleo de WordPress, y resolverá cualquier
+              problema o error. Reciba informes semanales detallados con un
+              resumen de toda la actividad del sitio.
+            </p>
+            <br />
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/secureHosting.svg"
+                alt="imgBot"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Alojamiento web seguro
+            </h4>
+            <p class="text-gray-600">
+              Nuestros servicios de alojamiento se basan en hardware SSD de alta
+              gama ubicado en un centro de datos de última generación.
+            </p>
+            <br />
+          </div>
+          <!-- Card 6 -->
+          <div
+            class="bg-gray-200 rounded-2xl shadow-md p-6 text-center transition-all duration-800 hover:scale-110 hover:shadow-lg hover:shadow-amber-50"
+          >
+            <div class="mb-4 flex justify-center">
+              <img
+                class="h-20 w-20"
+                src="https://www.lemonheaddesign.com/wp-content/uploads/2023/06/quick-turnaround-time.svg"
+                alt="imgMantenimiento"
+              />
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">
+              Monitoreo 24/7 y copias de seguridad diarias
+            </h4>
+            <p class="text-gray-600">
+              Brindamos protección sólida para su sitio web, resguardándolo de
+              malware y piratas informáticos al prevenir problemas de manera
+              proactiva, bloquear actores maliciosos y tomar medidas rápidas
+              durante los peores casos, garantizando la seguridad e integridad
+              de su sitio web.
+            </p>
+            <br />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[60%_40%] gap-8 items-center px-4"
+      >
+        <!-- Texto -->
+        <div>
+          <h3 class="text-3xl font-bold text-gray-900 leading-snug">
+            Gerente de cuenta dedicado - Con sede en EE. UU.
+          </h3>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            ¡Habla siempre con el mismo gestor de cuentas! Entendemos la
+            importancia de tener acceso directo a tu gestor web dedicado siempre
+            que necesites ayuda. Por eso, nuestros gestores web están ubicados
+            en EE. UU. y están disponibles de guardia para cualquier tarea que
+            necesites. Con su línea telefónica directa y correo electrónico
+            personal, puedes contactar fácilmente con el profesional asignado
+            específicamente para gestionar tu sitio web.
+          </p>
+        </div>
+
+        <!-- Imagen -->
+        <div class="flex justify-center">
+          <div class="w-full max-w-md overflow-hidden shadow-none">
+            <img
+              src="https://img.freepik.com/premium-vector/international-relations-isolated-cartoon-vector-illustrations_107173-71204.jpg?w=1380"
+              alt="Gerente de cuentas"
+              class="w-full h-auto object-cover opacity-90 transition duration-300 ease-in-out hover:opacity-100"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[60%_40%] gap-8 items-center px-4"
+      >
+        <!-- Imagen -->
+        <div class="flex justify-center">
+          <div class="w-full max-w-md overflow-hidden shadow-none">
+            <img
+              src="https://img.freepik.com/premium-vector/ux-designer-improving-website-usability-boost-seo_701961-4838.jpg?w=1380"
+              alt="Gerente de cuentas"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div>
+          <h3 class="text-3xl font-bold text-gray-900 leading-snug">
+            Actualizaciones rápidas y eficientes de su sitio web
+          </h3>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            Experimente la simplicidad de nuestro servicio de gestión de sitios
+            web en WordPress. Desde añadir contenido y modificar imágenes hasta
+            crear nuevas secciones, nos encargamos de todo. Simplemente envíenos
+            un correo electrónico y considérelo hecho.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4"
+      >
+        <!-- Texto -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900">
+            Mantenimiento diario del sitio web
+          </h3>
+          <p class="mt-4 text-gray-700 text-base leading-relaxed">
+            Mantén un sitio web en buen estado, seguro y actualizado con nuestro
+            equipo dedicado. Nos encargamos de las tareas diarias, incluyendo la
+            actualización de plugins, temas y el núcleo de WordPress. Si surge
+            algún problema, lo solucionamos de inmediato. Mantente informado con
+            informes mensuales detallados que describen las actividades de
+            nuestro sitio.
+          </p>
+        </div>
+
+        <!-- Imagen -->
+        <div class="flex justify-center">
+          <img
+            src="https://img.freepik.com/premium-vector/illustration_146120-1849.jpg?w=1380"
+            alt="Gerente de cuentas"
+            class="max-w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center px-4"
+      >
+        <!-- Imagen (30%) -->
+        <div class="flex justify-center md:basis-1/3">
+          <img
+            src="https://img.freepik.com/vector-gratis/ilustracion-plagio-derechos-autor_23-2148711114.jpg?t=st=1748485149~exp=1748488749~hmac=d828c7b4b40e9974fc8f04f58570d43b8b143ae510200e6a2fd515d2dbcab0fb&w=1380"
+            alt="Gerente de cuentas"
+            class="max-w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto (70%) -->
+        <div class="md:basis-2/3">
+          <h3 class="text-2xl font-bold text-gray-900">
+            Alojamiento web seguro
+          </h3>
+          <p class="mt-4 text-gray-700 text-base leading-relaxed">
+            Deje en nuestras manos las complejidades del alojamiento web.
+            Nuestros confiables servicios de alojamiento garantizan un
+            alojamiento seguro y eficiente para su sitio web, ofreciendo una
+            experiencia en línea fluida a sus visitantes. Nos encargamos de
+            todos los aspectos del alojamiento de su sitio web. Utilizamos
+            servidores líderes en la industria, como Vultr, para brindar un
+            alojamiento seguro y de alto rendimiento. Instalamos la mejor
+            tecnología para garantizar una seguridad óptima y un rendimiento web
+            rápido.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center px-4"
+      >
+        <!-- Texto (70%) -->
+        <div class="md:basis-7/10">
+          <h3 class="text-2xl font-bold text-gray-900">
+            Realizamos copias de seguridad diarias del sitio web y análisis de
+            malware diarios.
+          </h3>
+          <p class="mt-4 text-gray-700 text-base leading-relaxed">
+            Priorizamos la seguridad de su sitio web WordPress mediante un
+            riguroso sistema de copias de seguridad. Generamos y almacenamos
+            múltiples copias de seguridad en diferentes ubicaciones. Este
+            enfoque integral garantiza que, en caso de cualquier problema, su
+            sitio web se pueda restaurar eficientemente desde la copia de
+            seguridad más reciente, garantizando así su tranquilidad. Confíe en
+            nosotros para prevenir problemas de forma proactiva, identificar y
+            bloquear a actores maliciosos y tomar medidas decisivas en los
+            peores escenarios. Con nuestras completas medidas de seguridad, su
+            sitio web permanece protegido, permitiéndole centrarse en su negocio
+            principal sin preocuparse por posibles amenazas.
+          </p>
+        </div>
+
+        <!-- Imagen (30%) -->
+        <div class="flex justify-center md:basis-3/10">
+          <img
+            src="https://img.freepik.com/premium-vector/vacancies-abstract-concept-vector-illustration_107173-24844.jpg?w=1380"
+            alt="Gerente de cuentas"
+            class="max-w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 bg-white py-12">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center px-4"
+      >
+        <!-- Imagen (30%) -->
+        <div class="flex justify-center md:basis-3/10">
+          <img
+            src="https://img.freepik.com/premium-vector/man-sits-desk-with-computer-graph-it_1274009-339.jpg?w=1380"
+            alt="Monitoreo y copias de seguridad"
+            class="max-w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto (70%) -->
+        <div class="md:basis-7/10">
+          <h3 class="text-2xl font-bold text-gray-900">
+            Monitoreo 24/7 y copias de seguridad diarias
+          </h3>
+          <p class="mt-4 text-gray-700 text-base leading-relaxed">
+            Su sitio web está protegido en todo momento gracias a nuestro
+            sistema de monitoreo continuo 24/7. Detectamos y respondemos de
+            inmediato ante cualquier actividad sospechosa, asegurando un entorno
+            digital seguro para usted y sus visitantes. <br /><br />
+            Además, realizamos copias de seguridad automáticas todos los días y las
+            almacenamos de forma segura en múltiples ubicaciones. Esto garantiza
+            que su información esté siempre a salvo y que cualquier incidente pueda
+            resolverse rápidamente restaurando la última versión íntegra de su sitio
+            web. <br /><br />
+            Con estas medidas proactivas, usted puede concentrarse en su negocio
+            mientras nosotros nos encargamos de mantener su sitio funcionando de
+            forma segura y estable.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  const phrases: string[] = [
+    "Web Maintenance",
+    "Website Design Changes",
+    "Website Plugin Updates",
+    "Daily Website Backups",
+    "Secure and Reliable Hosting",
+  ];
+
+  let current = 0;
+  const rotatingText = document.getElementById("rotatingText");
+
+  if (rotatingText) {
+    rotatingText.textContent = phrases[current];
+
+    setInterval(() => {
+      rotatingText.classList.remove("animate-text");
+      void rotatingText.offsetWidth; // forzar reflow para reiniciar la animación
+      current = (current + 1) % phrases.length;
+      rotatingText.textContent = phrases[current];
+      rotatingText.classList.add("animate-text");
+    }, 3000);
+  }
+</script>
+
+<style>
+  .rotating-text-container {
+    overflow: hidden;
+    position: relative;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rotating-text {
+    display: inline-block;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: none;
+  }
+
+  .animate-text {
+    animation: slide-in-out 3s ease-in-out forwards;
+  }
+
+  @keyframes slide-in-out {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    20% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    80% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+</style>
