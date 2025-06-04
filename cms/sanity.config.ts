@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'solutionspragmatic-cms',
+  title: 'portafolio',
 
-  projectId: '67as9679',
+  projectId: 'gx00kxlv',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
